@@ -1,17 +1,28 @@
-const http = require('http');
- const servidor = http.createServer((req, res) => {
-    res.end("Meu Primeiro servidor web com node.js");
- });
+const express = require('express');
 
-servidor.listen(3000, () => {
-    console.log("Servidor rodando em http://localhost:3000");
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Pagina inicial com Express');
 });
 
+app.get('/sobre', (req, res) => {
+    res.send('Pagina sobre com Express');
+});
 
+app.get('/contato', (req, res) => {
+    res.send('Pagina de contato com Express');
+});
 
+app.get('/produtos', (req, res) => {
+    res.send('Lista de pipocas');
+});
 
+app.get('/servicos', (req, res) => {
+    res.send('Lista de servicos');
+});
 
-
-console.log("Servidor iniciado");
-
+app.listen(3000, () => {
+    console.log('Servidor rodando em http://localhost:3000');
+});
 
